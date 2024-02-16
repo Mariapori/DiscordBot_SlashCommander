@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  7dtd_discordbot:
+    image: ${DOCKER_REGISTRY-}7dtddiscordbot
+    build:
+      context: .
+      dockerfile: 7DTD_DiscordBot/Dockerfile
+    environment:
+        - discordToken = MTIwODA5MjcxNDY2MzU1MTAxNw.Gl60qD.BJD5rhBUGZW4S2W3POESMr-RZKffvJjH1NLrZA
