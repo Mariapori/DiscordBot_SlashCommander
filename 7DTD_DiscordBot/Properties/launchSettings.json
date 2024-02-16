@@ -1,8 +1,7 @@
 {
   "profiles": {
     "7DTD_DiscordBot": {
-      "commandName": "Project",
-      "commandLineArgs": "MTIwODA5MjcxNDY2MzU1MTAxNw.GV6dYl.w_328AA4DWWZLYCDlN5-fMjrmrimwOfw1l-ff4"
+      "commandName": "Project"
     },
     "Docker": {
       "commandName": "Docker"
