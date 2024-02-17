@@ -2,9 +2,6 @@
   "profiles": {
     "7DTD_DiscordBot": {
       "commandName": "Project"
-    },
-    "Docker": {
-      "commandName": "Docker"
     }
   }
 }

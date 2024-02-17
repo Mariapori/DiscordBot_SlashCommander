@@ -15,7 +15,7 @@ Dictionary<SlashCommandBuilder, Action<SocketSlashCommand>> CommandActions = new
 bot.Ready += Bot_Ready;
 bot.SlashCommandExecuted += Bot_SlashCommandExecuted;
 
-BuildCommand("komento1", "Tämä komento on täysin testi", async ( komento ) =>
+BuildCommand("komento1", "Tämä komento on täysin testi", GuildPermission.Administrator, async ( komento ) =>
 {
     await komento.RespondAsync("No moro vaan!");
 });
@@ -45,11 +45,16 @@ async Task MainAsync()
     await Task.Delay(Timeout.Infinite);
 }
 
-void BuildCommand(string commandName,string commandDescription, Action<SocketSlashCommand> commandCallback)
+void BuildCommand(string commandName, string commandDescription, GuildPermission permissions, Action<SocketSlashCommand> commandCallback, bool isNsfw = false, List<SlashCommandOptionBuilder>? commandOptions = null)
 {
     var komento = new SlashCommandBuilder();
     komento.Name = commandName.ToLower();
     komento.Description = commandDescription;
-    komento.IsNsfw = false;
+    komento.IsNsfw = isNsfw;
+    komento.DefaultMemberPermissions = permissions;
+    if(commandOptions != null)
+    {
+        komento.Options = commandOptions;
+    }
     CommandActions.Add(komento, commandCallback);
 }
